@@ -16,7 +16,8 @@ def generate():
         print("⚠️ 缺少 text 参数")
         return 'Missing text', 403
 
-    font_path = '/Users/owen/Desktop/Calligraphy_API/FZYanZQKSJF.TTF'
+    import os
+    font_path = os.path.join(os.path.dirname(__file__), 'fonts', 'FZYanZQKSJF.TTF')
     if layout == 'vertical':
         font_size = 65  # 小一号，避免视觉太大
         row_spacing = 1.2

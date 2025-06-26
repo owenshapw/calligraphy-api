@@ -64,5 +64,8 @@ def generate():
     buffer.seek(0)
     return send_file(buffer, mimetype='image/jpeg')
 
+import os
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001, debug=True)
+    port = int(os.environ.get("PORT", 5001))  # 本地默认 5001，云端自动替换
+    app.run(host='0.0.0.0', port=port)

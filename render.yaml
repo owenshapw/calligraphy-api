@@ -6,3 +6,4 @@ services:
     buildCommand: "pip install -r requirements.txt"
     startCommand: "python server.py"
     autoDeploy: true
+buildCommand: pip install --only-binary=:all: -r requirements.txt

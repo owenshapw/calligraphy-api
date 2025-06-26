@@ -3,7 +3,10 @@ services:
     name: calligraphy-api
     env: python
     plan: free
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "python server.py"
-    autoDeploy: true
-buildCommand: pip install --only-binary=:all: -r requirements.txt
+    buildCommand: >
+      pip install --upgrade pip setuptools wheel &&
+      pip install --only-binary=:all: -r requirements.txt
+    startCommand: python server.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9

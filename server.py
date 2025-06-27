@@ -2,21 +2,24 @@ from flask import Flask, request, send_file
 from PIL import Image, ImageDraw, ImageFont
 from io import BytesIO
 import math
+import os
 
 app = Flask(__name__)
 
 @app.route('/generate', methods=['POST'])
 def generate():
-    print("📥 收到请求啦！request.form:", request.form)
+    # 改成读取 JSON 请求体
+    data = request.get_json(force=True, silent=True)
+    if not data:
+        return 'Missing JSON body', 403
 
-    text = request.form.get('text', '')
-    layout = request.form.get('layout', 'horizontal')
+    text = data.get('text', '')
+    layout = data.get('layout', 'horizontal')
 
     if not text:
         print("⚠️ 缺少 text 参数")
         return 'Missing text', 403
 
-    import os
     font_path = os.path.join(os.path.dirname(__file__), 'fonts', 'FZYanZQKSJF.TTF')
     if layout == 'vertical':
         font_size = 65  # 小一号，避免视觉太大
@@ -58,14 +61,13 @@ def generate():
 
         for idx, line in enumerate(lines):
             draw.text((20, 20 + idx * line_height), line, font=font, fill='black')
- 
+
     # 返回图片
     buffer = BytesIO()
     img.save(buffer, format='JPEG')
     buffer.seek(0)
     return send_file(buffer, mimetype='image/jpeg')
 
-import os
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5001))  # 本地默认 5001，云端自动替换

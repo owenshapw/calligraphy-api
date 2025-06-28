@@ -20,9 +20,8 @@ FONT_MAPPING = {
     'liu_gq': 'FZLiuGQKSJF.TTF',  # 柳公权体
     'sj_yis': 'FZSJ-YISQXSPZ.TTF',  # 宋体(艺术)
     'liu_bs': 'FZLiuBSLSJW.TTF',  # 刘炳森体
-    'zhao_js_w': 'FZZhaoJSJSJW.TTF',  # 瘦金体(简体文)
     'yi_yl': 'FZYiYBLSJW.TTF',  # 易英体
-    'sha': 'ShaTi.TTF'  # 沙氏体
+    'sha': 'ShaTi.TTF'  # 沙体
 }
 
 @app.route('/generate', methods=['POST'])

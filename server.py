@@ -22,7 +22,7 @@ FONT_MAPPING = {
     'liu_bs': 'FZLiuBSLSJW.TTF',  # 刘炳森体
     'zhao_js_w': 'FZZhaoJSJSJW.TTF',  # 赵体(简体文)
     'yi_yl': 'FZYiYBLSJW.TTF',  # 易英体
-    'sha': '沙氏体.ttf'
+    'sha': 'ShaShiTi.ttf'  # 沙氏体
 }
 
 @app.route('/generate', methods=['POST'])

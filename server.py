@@ -6,6 +6,15 @@ import os
 
 app = Flask(__name__)
 
+# 字体映射字典
+FONT_MAPPING = {
+    'yan': 'FZYanZQKSJF.TTF',  # 颜体
+    'wen': 'FZWenZMXKJW.TTF',  # 文征明体
+    'zhao': 'FZZCHJW.TTF',     # 赵体
+    'zheng': 'FZZJ-HFHWJW.TTF', # 郑体
+    'alibaba': 'AlibabaHealthFont20CN-45R.TTF'  # 阿里巴巴体
+}
+
 @app.route('/generate', methods=['POST'])
 def generate():
     # 改成读取 JSON 请求体
@@ -15,12 +24,16 @@ def generate():
 
     text = data.get('text', '')
     layout = data.get('layout', 'horizontal')
+    font_style = data.get('font', 'yan')  # 默认使用颜体
 
     if not text:
         print("⚠️ 缺少 text 参数")
         return 'Missing text', 403
 
-    font_path = os.path.join(os.path.dirname(__file__), 'fonts', 'FZYanZQKSJF.TTF')
+    # 根据字体选择获取字体文件路径
+    font_filename = FONT_MAPPING.get(font_style, 'FZYanZQKSJF.TTF')
+    font_path = os.path.join(os.path.dirname(__file__), 'fonts', font_filename)
+    
     if layout == 'vertical':
         font_size = 65  # 小一号，避免视觉太大
         row_spacing = 1.2

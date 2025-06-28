@@ -12,7 +12,16 @@ FONT_MAPPING = {
     'wen': 'FZWenZMXKJW.TTF',  # 文征明体
     'zhao': 'FZZCHJW.TTF',     # 赵体
     'zheng': 'FZZJ-HFHWJW.TTF', # 郑体
-    'alibaba': 'AlibabaHealthFont20CN-45R.TTF'  # 阿里巴巴体
+    'alibaba': 'AlibabaHealthFont20CN-45R.TTF',  # 阿里巴巴体
+    'qigong': 'FZQiGXKJF.TTF',  # 启功体
+    'qigong_w': 'FZQiGXKJW.TTF',  # 启功体(文)
+    'zhao_js': 'FZZhaoJSJSJF.TTF',  # 赵体(简体)
+    'wang_xz': 'FZWangXZXSJF.TTF',  # 王羲之体
+    'liu_gq': 'FZLiuGQKSJF.TTF',  # 刘公权体
+    'sj_yis': 'FZSJ-YISQXSPZ.TTF',  # 宋体(艺术)
+    'liu_bs': 'FZLiuBSLSJW.TTF',  # 刘炳森体
+    'zhao_js_w': 'FZZhaoJSJSJW.TTF',  # 赵体(简体文)
+    'yi_yl': 'FZYiYBLSJW.TTF',  # 易英体
 }
 
 @app.route('/generate', methods=['POST'])
@@ -26,6 +35,9 @@ def generate():
     layout = data.get('layout', 'horizontal')
     font_style = data.get('font', 'yan')  # 默认使用颜体
 
+    # 添加调试信息
+    print(f"📝 接收到的参数: text='{text}', layout='{layout}', font='{font_style}'")
+
     if not text:
         print("⚠️ 缺少 text 参数")
         return 'Missing text', 403
@@ -33,6 +45,11 @@ def generate():
     # 根据字体选择获取字体文件路径
     font_filename = FONT_MAPPING.get(font_style, 'FZYanZQKSJF.TTF')
     font_path = os.path.join(os.path.dirname(__file__), 'fonts', font_filename)
+    
+    # 添加字体调试信息
+    print(f"🎨 选择的字体: {font_style} -> {font_filename}")
+    print(f"📁 字体路径: {font_path}")
+    print(f"✅ 字体文件存在: {os.path.exists(font_path)}")
     
     if layout == 'vertical':
         font_size = 65  # 小一号，避免视觉太大

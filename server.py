@@ -10,7 +10,7 @@ app = Flask(__name__)
 FONT_MAPPING = {
     'yan': 'FZYanZQKSJF.TTF',  # 颜体
     'wen': 'FZWenZMXKJW.TTF',  # 文征明体
-    'zhao': 'FZZCHJW.TTF',     # 赵体
+    'zhao': 'FZZCHJW.TTF',     # 瘦金体
     'zheng': 'FZZJ-HFHWJW.TTF', # 郑体
     'alibaba': 'AlibabaHealthFont20CN-45R.TTF',  # 阿里巴巴体
     'qigong': 'FZQiGXKJF.TTF',  # 启功体
@@ -20,7 +20,7 @@ FONT_MAPPING = {
     'liu_gq': 'FZLiuGQKSJF.TTF',  # 柳公权体
     'sj_yis': 'FZSJ-YISQXSPZ.TTF',  # 宋体(艺术)
     'liu_bs': 'FZLiuBSLSJW.TTF',  # 刘炳森体
-    'zhao_js_w': 'FZZhaoJSJSJW.TTF',  # 赵体(简体文)
+    'zhao_js_w': 'FZZhaoJSJSJW.TTF',  # 瘦金体(简体文)
     'yi_yl': 'FZYiYBLSJW.TTF',  # 易英体
     'sha': 'ShaTi.TTF'  # 沙氏体
 }

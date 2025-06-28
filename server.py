@@ -17,11 +17,12 @@ FONT_MAPPING = {
     'qigong_w': 'FZQiGXKJW.TTF',  # 启功体(文)
     'zhao_js': 'FZZhaoJSJSJF.TTF',  # 赵体(简体)
     'wang_xz': 'FZWangXZXSJF.TTF',  # 王羲之体
-    'liu_gq': 'FZLiuGQKSJF.TTF',  # 刘公权体
+    'liu_gq': 'FZLiuGQKSJF.TTF',  # 柳公权体
     'sj_yis': 'FZSJ-YISQXSPZ.TTF',  # 宋体(艺术)
     'liu_bs': 'FZLiuBSLSJW.TTF',  # 刘炳森体
     'zhao_js_w': 'FZZhaoJSJSJW.TTF',  # 赵体(简体文)
     'yi_yl': 'FZYiYBLSJW.TTF',  # 易英体
+    'sha': '沙氏体.ttf'
 }
 
 @app.route('/generate', methods=['POST'])
